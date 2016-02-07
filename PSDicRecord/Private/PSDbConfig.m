@@ -19,29 +19,19 @@
     NSRecursiveLock *_lock;
 }
 
-- (instancetype)initWithName:(NSString *)name datasource:(NSString *)datasource showSql:(BOOL)showSql{
+- (instancetype)initWithName:(NSString *)name datasource:(NSString *)datasource{
     if (self = [super init]) {
         _name = [name copy];
         _datasource = [datasource copy];
-        _showSql = showSql;
         _transConnection = nil;
         _lock = [NSRecursiveLock new];
         _connection = [[PSDbConnection alloc] initWithDatasource:_datasource];
-//        doIf(_showSql, [PSAspect interceptSelector:@selector(prepareStatement:) inInstance:_connection withInterceptor:self]);
     }
     return self;
 }
 
 - (id<PSContainerFactory>)containerFactory{
     return _containerFactory?: [PSCaseSensitiveContainerFactory new];
-}
-
-// log sql
-- (void)intercept:(NSInvocation *)invocation{
-//    __unsafe_unretained PSSql *sql;
-//    [invocation getArgument:&sql atIndex:2];
-//    PSPrintf(@"%@ PSDicRecord:\n%@\n=========================================\n", [[NSDate new] ps_toString:@"yyyy-MM-dd HH:mm:ss.SSS"], [sql debugDescription]);
-//    [invocation invoke];
 }
 
 - (PSDbConnection *)getOpenedConnection{

@@ -15,6 +15,8 @@ typedef NSArray<NSDictionary<NSString *, id> *> PSQueryResultSet;
 
 NS_ASSUME_NONNULL_BEGIN
 @interface PSDbConnection : NSObject
++ (void)showSqls:(BOOL)showSql;
+
 @property (nonatomic, copy, readonly) NSString *datasource;
 - (instancetype)initWithDatasource:(NSString *)datasource NS_DESIGNATED_INITIALIZER;
 

@@ -557,8 +557,8 @@
 			projectRoot = "";
 			targets = (
 				5DE5245A1C5CDC1D000FA850 /* PSDicRecord */,
-				5DE524641C5CDC1D000FA850 /* PSDicRecordTests */,
 				2CCCE5BB1C65143000AAEA76 /* Aggregate */,
+				5DE524641C5CDC1D000FA850 /* PSDicRecordTests */,
 			);
 		};
 /* End PBXProject section */

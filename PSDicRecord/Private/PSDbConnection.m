@@ -24,6 +24,21 @@
 @end
 
 @implementation PSDbConnection
+static BOOL _showSql = NO;
++ (void)showSqls:(BOOL)showSql{
+    _showSql = showSql;
+}
+
+- (void)showSql:(PSSql *)sql{
+    static NSDateFormatter *formatter = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        formatter = [[NSDateFormatter alloc] init];
+        formatter.dateFormat = @"yyyy-MM-dd HH:mm:ss.SSS";
+    });
+    doIf(_showSql, sql_printf(@"📕📕%@ PSDicRecord: \n%@\n", [formatter stringFromDate:[NSDate date]], [sql debugDescription]));
+}
+
 - (instancetype)init{
     return [self initWithDatasource:@""];
 }
@@ -89,6 +104,8 @@
 
 @implementation PSDbConnection(Statement)
 - (PSDbStatement *)prepareStatement:(PSSql *)sql{
+    [self showSql:sql];
+    
     PSParameterAssert(sql != nil && sql.sql.length > 0);
     
     int result              = 0x00;

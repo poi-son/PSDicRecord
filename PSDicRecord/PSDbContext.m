@@ -84,11 +84,12 @@
 - (void)start{
     PSAssert(self.datasource.length, @"you must set up a database");
     PSAssert(_registedModel.count, @"you must register one model at lease");
+    [PSDbConnection showSqls:self.showSql];
     
     //Auto create path
     [self createPathIfNotExists];
     
-    PSDbConfig *config = [[PSDbConfig alloc] initWithName:self.configName datasource:self.datasource showSql:self.showSql];
+    PSDbConfig *config = [[PSDbConfig alloc] initWithName:self.configName datasource:self.datasource];
     config.containerFactory = self.containerFactory;
     
     [PSDbKit addModel:[PSTable class] toConfigMapping:config];

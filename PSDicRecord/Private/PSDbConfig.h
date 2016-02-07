@@ -12,12 +12,10 @@
 @protocol PSContainerFactory;
 NS_ASSUME_NONNULL_BEGIN
 @interface PSDbConfig : NSObject
-- (nonnull instancetype)initWithName:(nonnull NSString *)name datasource:(nonnull NSString *)datasource showSql:(BOOL)showSql;
+- (nonnull instancetype)initWithName:(nonnull NSString *)name datasource:(nonnull NSString *)datasource;
 
 @property (nonatomic, readonly) NSString *name;
 @property (nonatomic, readonly) NSString *datasource;
-@property (nonatomic, readonly) BOOL showSql;
-@property (nonatomic, assign) BOOL showError;
 @property (nonatomic, strong) id<PSContainerFactory> containerFactory;
 
 #pragma mark - Transaction
