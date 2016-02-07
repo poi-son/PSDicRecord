@@ -1,0 +1,114 @@
+//
+//  PSUIColorConvertor.m
+//  PSExtensions
+//
+//  Created by PoiSon on 16/1/11.
+//  Copyright © 2016年 yerl. All rights reserved.
+//
+
+#import <UIKit/UIKit.h>
+#import "PSUIColorConvertor.h"
+#import "PSDicRecord_private.h"
+#import <sqlite3.h>
+#import <objc/runtime.h>
+
+@interface PSUIColorConvertor()
+@property(nonatomic, retain) UIColor *signature;
+@end
+
+@implementation PSUIColorConvertor
+- (NSString *)type{
+    static NSString *_type = nil;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        objc_property_t property = class_getProperty(self.class, "signature");
+        char *type = property_copyAttributeValue(property, "T");
+        _type = @(type);
+        free((void *)type);
+    });
+    return _type;
+}
+
+- (Class)objcType{
+    return UIColor.class;
+}
+
+- (NSString *)dataType{
+    return PSSQLiteTypeINTEGER;
+}
+
+- (NSMethodSignature *)setterSignature{
+    return [self methodSignatureForSelector:@selector(setSignature:)];
+}
+
+- (NSMethodSignature *)getterSignature{
+    return [self methodSignatureForSelector:@selector(signature)];
+}
+
+- (void)bindObject:(id)obj toColumn:(int)idx inStatement:(sqlite3_stmt *)statement{
+    sqlite3_bind_int64(statement, idx, [obj ps_hexValueForColor:obj]);
+}
+
+- (id)getBuffer:(void *)buffer fromObject:(id)obj{
+    returnValIf(obj == nil || [obj isEqual:[NSNull null]], nil);
+    if ([obj isKindOfClass:[NSNumber class]]){
+        int64_t value = (int64_t)[obj longLongValue];
+        UIColor *color = [self ps_colorWithHex:value];
+        memcpy(buffer, (void *)&color, sizeof(id));
+        return color;
+    }else if ([obj isKindOfClass:[UIColor class]]){
+        memcpy(buffer, (void *)&obj, sizeof(id));
+        return nil;
+    }
+    PSAssert(NO, @"can not conver <%@ %p>:%@ to UIColor", [obj class], obj, obj);
+    return nil;
+}
+
+- (id)objectForBuffer:(void *)buffer{
+    returnValIf(buffer == NULL, nil);
+    __unsafe_unretained id obj = nil;
+    memcpy(&obj, buffer, sizeof(id));
+    return obj;
+}
+
+- (int64_t)ps_hexValueForColor:(UIColor *)color{
+    CGFloat red, green, blue, alpha;
+    [self ps_getRed:&red green:&green blue:&blue alpha:&alpha from:color];
+    
+    int64_t iRed, iGreen, iBlue, iAlpha;
+    iAlpha = (int64_t)(alpha * 255);
+    iRed = (int64_t)(red * 255);
+    iGreen = (int64_t)(green * 255);
+    iBlue = (int64_t)(blue * 255);
+    
+    int64_t result = (iAlpha << 24) + (iRed << 16) + (iGreen << 8) + iBlue;
+    return result;
+}
+
+- (void)ps_getRed:(CGFloat *)red green:(CGFloat *)green blue:(CGFloat *)blue alpha:(CGFloat *)alpha from:(UIColor *)color{
+    CGColorRef colorRef = [color CGColor];
+    const CGFloat *components = CGColorGetComponents(colorRef);
+    
+    size_t count = CGColorGetNumberOfComponents(colorRef);
+    if (count == 4) {
+        *red = components[0];
+        *green = components[1];
+        *blue = components[2];
+        *alpha = components[3];
+    }else if (count == 2){
+        *red = components[0];
+        *green = components[0];
+        *blue = components[0];
+        *alpha = components[1];
+    }
+}
+
+- (UIColor *)ps_colorWithHex:(int64_t)hexValue{
+    return [UIColor colorWithRed:((hexValue & 0xFF0000) >> 16)/255.0f
+                           green:((hexValue & 0xFF00) >> 8)/255.0f
+                            blue:(hexValue & 0xFF)/255.0f
+                           alpha:((hexValue & 0xFF000000) >> 24)/255.0f];
+}
+
+
+@end
