@@ -57,7 +57,7 @@ NS_ASSUME_NONNULL_BEGIN
 #pragma mark - Find Models
 - (NSArray<M> *)find:(NSString *)sql, ...;/**< Find models. */
 - (NSArray<M> *)findWithSql:(PSSql *)sql;/**< Find models. */
-- (NSArray<M> *)findByCondition:(NSString *)condition, ...;/**< Find model with condition. [[Model dao] findWithCondition:@"age > ? and weight < ?", @(30), @(100)] */
+- (NSArray<M> *)findByCondition:(NSString *)condition, ...;/**< Find model with condition. [[Model dao] findWithCondition:@"age > ? and weight < ?", @30, @100] */
 - (nullable M)findFirstByCondition:(NSString *)condition, ...;/**< Find first model. I recomment add "limit 1" in your conditions. */
 - (NSArray<M> *)findAll;/**< Find all model in table. */
 - (nullable M)findFirst:(NSString *)sql, ...;/**< Find first model. I recomment add "limit 1" in your sql. */

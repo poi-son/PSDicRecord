@@ -30,8 +30,4 @@
       _Pragma("clang diagnostic pop")                                     \
    } while (0)
 
-#define PSEnumOption(enum, value, comment) enum = value
-#define PSExternString(key, comment) FOUNDATION_EXPORT NSString * const _Nonnull key;
-#define PSExternStringVal(key, val) NSString * const key = val;
-
 #endif

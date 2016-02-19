@@ -7,12 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
-//! Project version number for PSDicRecord.
-FOUNDATION_EXPORT double PSDicRecordVersionNumber;
-
-//! Project version string for PSDicRecord.
-FOUNDATION_EXPORT const unsigned char PSDicRecordVersionString[];
+#import <PSDicRecord/PSDicRecordDefines.h>
 
 #import <PSDicRecord/PSDbContext.h>
 #import <PSDicRecord/PSDb.h>

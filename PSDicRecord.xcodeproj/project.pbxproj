@@ -26,6 +26,7 @@
 		2C1C751E1C661CDB00930924 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C1C751D1C661CDB00930924 /* libsqlite3.tbd */; };
 		2CFC618F1C6501230054F376 /* PSDbContext.h in Headers */ = {isa = PBXBuildFile; fileRef = 2CFC618D1C6501230054F376 /* PSDbContext.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2CFC61901C6501230054F376 /* PSDbContext.m in Sources */ = {isa = PBXBuildFile; fileRef = 2CFC618E1C6501230054F376 /* PSDbContext.m */; };
+		5D0C09761C7769420025F356 /* PSDicRecordDefines.h in Headers */ = {isa = PBXBuildFile; fileRef = 5D0C09751C7769420025F356 /* PSDicRecordDefines.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DE524661C5CDC1D000FA850 /* PSDicRecord.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 5DE5245B1C5CDC1D000FA850 /* PSDicRecord.framework */; };
 		5DE524DD1C5CDC53000FA850 /* PSCaseInsensitiveContainerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE524771C5CDC53000FA850 /* PSCaseInsensitiveContainerFactory.m */; };
 		5DE524DF1C5CDC53000FA850 /* PSCaseSensitiveContainerFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE524791C5CDC53000FA850 /* PSCaseSensitiveContainerFactory.m */; };
@@ -75,7 +76,6 @@
 		5DE5253E1C5CDC8B000FA850 /* PSContainerFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DE5247A1C5CDC53000FA850 /* PSContainerFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DE5253F1C5CDC8B000FA850 /* PSDictionaryProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DE5247B1C5CDC53000FA850 /* PSDictionaryProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DE525401C5CDC8B000FA850 /* PSSetProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DE5247C1C5CDC53000FA850 /* PSSetProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5DE525411C5CDC8B000FA850 /* convenientmacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DE524BD1C5CDC53000FA850 /* convenientmacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DE525421C5CDC8B000FA850 /* metamacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DE524BE1C5CDC53000FA850 /* metamacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DE525431C5CDC8B000FA850 /* PSDb.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DE524CD1C5CDC53000FA850 /* PSDb.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DE525441C5CDC8B000FA850 /* PSDbAttribute.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DE524CF1C5CDC53000FA850 /* PSDbAttribute.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -87,8 +87,8 @@
 		5DE5254A1C5CDC8B000FA850 /* PSTypeConvertor.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DE524DB1C5CDC53000FA850 /* PSTypeConvertor.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DE525521C5CE60F000FA850 /* Student.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE5254F1C5CE60F000FA850 /* Student.m */; };
 		5DE525531C5CE60F000FA850 /* Teacher.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE525511C5CE60F000FA850 /* Teacher.m */; };
-		5DE525551C5CE654000FA850 /* PSDbTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE525541C5CE654000FA850 /* PSDbTests.m */; };
-		5DE525591C5CE6AA000FA850 /* PSModelTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE525581C5CE6AA000FA850 /* PSModelTests.m */; };
+		5DE525551C5CE654000FA850 /* PSDb.test.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE525541C5CE654000FA850 /* PSDb.test.m */; };
+		5DE525591C5CE6AA000FA850 /* PSModel.test.m in Sources */ = {isa = PBXBuildFile; fileRef = 5DE525581C5CE6AA000FA850 /* PSModel.test.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -109,6 +109,7 @@
 		2C1C751D1C661CDB00930924 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
 		2CFC618D1C6501230054F376 /* PSDbContext.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSDbContext.h; sourceTree = "<group>"; };
 		2CFC618E1C6501230054F376 /* PSDbContext.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSDbContext.m; sourceTree = "<group>"; };
+		5D0C09751C7769420025F356 /* PSDicRecordDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PSDicRecordDefines.h; sourceTree = "<group>"; };
 		5DE5245B1C5CDC1D000FA850 /* PSDicRecord.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = PSDicRecord.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DE524601C5CDC1D000FA850 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		5DE524651C5CDC1D000FA850 /* PSDicRecordTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = PSDicRecordTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -212,8 +213,8 @@
 		5DE5254F1C5CE60F000FA850 /* Student.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Student.m; sourceTree = "<group>"; };
 		5DE525501C5CE60F000FA850 /* Teacher.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Teacher.h; sourceTree = "<group>"; };
 		5DE525511C5CE60F000FA850 /* Teacher.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Teacher.m; sourceTree = "<group>"; };
-		5DE525541C5CE654000FA850 /* PSDbTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSDbTests.m; sourceTree = "<group>"; };
-		5DE525581C5CE6AA000FA850 /* PSModelTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSModelTests.m; sourceTree = "<group>"; };
+		5DE525541C5CE654000FA850 /* PSDb.test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSDb.test.m; sourceTree = "<group>"; };
+		5DE525581C5CE6AA000FA850 /* PSModel.test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PSModel.test.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -289,6 +290,7 @@
 				2CFC618D1C6501230054F376 /* PSDbContext.h */,
 				2CFC618E1C6501230054F376 /* PSDbContext.m */,
 				5DE524D11C5CDC53000FA850 /* PSDicRecord.h */,
+				5D0C09751C7769420025F356 /* PSDicRecordDefines.h */,
 				5DE524D31C5CDC53000FA850 /* PSModel.h */,
 				5DE524D41C5CDC53000FA850 /* PSModel.m */,
 				5DE524D51C5CDC53000FA850 /* PSPage.h */,
@@ -308,8 +310,8 @@
 			children = (
 				5DE5254D1C5CE60F000FA850 /* Model */,
 				5DE5246C1C5CDC1D000FA850 /* Info.plist */,
-				5DE525541C5CE654000FA850 /* PSDbTests.m */,
-				5DE525581C5CE6AA000FA850 /* PSModelTests.m */,
+				5DE525541C5CE654000FA850 /* PSDb.test.m */,
+				5DE525581C5CE6AA000FA850 /* PSModel.test.m */,
 			);
 			path = PSDicRecordTests;
 			sourceTree = "<group>";
@@ -470,7 +472,6 @@
 				5DE5253E1C5CDC8B000FA850 /* PSContainerFactory.h in Headers */,
 				5DE5253F1C5CDC8B000FA850 /* PSDictionaryProtocol.h in Headers */,
 				5DE525401C5CDC8B000FA850 /* PSSetProtocol.h in Headers */,
-				5DE525411C5CDC8B000FA850 /* convenientmacros.h in Headers */,
 				5DE525421C5CDC8B000FA850 /* metamacros.h in Headers */,
 				5DE525431C5CDC8B000FA850 /* PSDb.h in Headers */,
 				5DE525441C5CDC8B000FA850 /* PSDbAttribute.h in Headers */,
@@ -480,6 +481,7 @@
 				5DE525481C5CDC8B000FA850 /* PSRecord.h in Headers */,
 				2CFC618F1C6501230054F376 /* PSDbContext.h in Headers */,
 				5DE525491C5CDC8B000FA850 /* PSSql.h in Headers */,
+				5D0C09761C7769420025F356 /* PSDicRecordDefines.h in Headers */,
 				5DE5254A1C5CDC8B000FA850 /* PSTypeConvertor.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -537,7 +539,7 @@
 					};
 					5DE5245A1C5CDC1D000FA850 = {
 						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = 9798E6Y7KJ;
+						DevelopmentTeam = X75EPVXZ98;
 					};
 					5DE524641C5CDC1D000FA850 = {
 						CreatedOnToolsVersion = 7.2;
@@ -654,9 +656,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5DE525591C5CE6AA000FA850 /* PSModelTests.m in Sources */,
+				5DE525591C5CE6AA000FA850 /* PSModel.test.m in Sources */,
 				5DE525531C5CE60F000FA850 /* Teacher.m in Sources */,
-				5DE525551C5CE654000FA850 /* PSDbTests.m in Sources */,
+				5DE525551C5CE654000FA850 /* PSDb.test.m in Sources */,
 				5DE525521C5CE60F000FA850 /* Student.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
