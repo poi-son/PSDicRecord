@@ -7,6 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <PSDicRecord/PSDicRecordDefines.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -14,6 +15,9 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol PSTypeConvertor;
 
 @interface PSDbContext : NSObject
+- (instancetype)init PSDICRECORD_API_UNAVAILABLE("use initWithDatasource:forConfig: instead");
++ (instancetype)new PSDICRECORD_API_UNAVAILABLE("use initWithDatasource:forConfig: instead");
+
 - (instancetype)initWithDatasource:(NSString *)datasource;/**< user default config name 'main'. */
 - (instancetype)initWithDatasource:(NSString *)datasource forConfig:(NSString *)configName NS_DESIGNATED_INITIALIZER;
 

@@ -92,7 +92,9 @@ NSString *property_getAttrValue(objc_property_t property, const char *attributeN
         [colsDic addObject:column.attributes];
     }
     
-    [self setValue:[NSJSONSerialization dataWithJSONObject:colsDic options:kNilOptions error:nil] forKey:@"columns"];
+    NSData *colData = [NSJSONSerialization dataWithJSONObject:colsDic options:kNilOptions error:nil];
+    [self setValue:[[NSString alloc] initWithData:colData encoding:NSUTF8StringEncoding] forKey:@"columns"];
+    
     _cols = cols;
 }
 

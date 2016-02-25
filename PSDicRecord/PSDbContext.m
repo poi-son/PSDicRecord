@@ -13,11 +13,6 @@
     NSMutableArray *_registedModel;
 }
 
-- (instancetype)init{
-    PSAssert(NO, @"use initWithDatasource:forConfig: instead");
-    return self = [self initWithDatasource:@"" forConfig:@""];
-}
-
 - (instancetype)initWithDatasource:(NSString *)dataSource{
     return [self initWithDatasource:dataSource forConfig:@"main"];
 }

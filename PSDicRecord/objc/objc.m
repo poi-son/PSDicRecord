@@ -15,7 +15,7 @@ void sql_printf(NSString *format, ...){
     
     __block va_list params;
     va_start(params, format);
-    printf([[NSString alloc] initWithFormat:format arguments:params].UTF8String, NULL);
+    printf([[NSString alloc] initWithFormat:[format stringByAppendingString:@"\n"] arguments:params].UTF8String, NULL);
     va_end(params);
     
     OSSpinLockUnlock(&aspect_lock);
