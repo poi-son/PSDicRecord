@@ -51,7 +51,7 @@
 
 - (id)getBuffer:(void *)buffer fromObject:(id)obj{
     returnValIf(obj == nil || [obj isEqual:[NSNull null]], nil);
-    PSAssert([obj isKindOfClass:[NSValue class]], @"can not conver <%@ %p> to double", [obj class], obj);
+    PSAssert([obj isKindOfClass:[NSValue class]], @"can not conver <%@ %p> to NSValue", [obj class], obj);
     memcpy(buffer, (void *)&obj, sizeof(id));
     return nil;
 }
@@ -60,6 +60,7 @@
     returnValIf(buffer == NULL, nil);
     __unsafe_unretained id obj = nil;
     memcpy(&obj, buffer, sizeof(id));
+    PSAssert([obj isKindOfClass:[NSValue class]], @"can not conver <%@ %p> to NSValue", [obj class], obj);
     return obj;
 }
 @end

@@ -59,6 +59,7 @@
     returnValIf(buffer == NULL, nil);
     __unsafe_unretained id obj = nil;
     memcpy(&obj, buffer, sizeof(id));
+    PSAssert([obj isKindOfClass:[NSString class]], @"can not conver <%@ %p> to NSString", [obj class], obj);
     return obj;
 }
 @end

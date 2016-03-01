@@ -21,6 +21,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		1D56EE5A1C7FF3E500B3FE64 /* TypeCompatible.test.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D56EE591C7FF3E500B3FE64 /* TypeCompatible.test.m */; };
 		2C02DF511C66FA4800FCA557 /* assert.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C02DF4D1C66FA4800FCA557 /* assert.m */; };
 		2C02DF531C66FA4800FCA557 /* objc.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C02DF4F1C66FA4800FCA557 /* objc.m */; };
 		2C1C751E1C661CDB00930924 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C1C751D1C661CDB00930924 /* libsqlite3.tbd */; };
@@ -76,7 +77,6 @@
 		5DE5253E1C5CDC8B000FA850 /* PSContainerFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DE5247A1C5CDC53000FA850 /* PSContainerFactory.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DE5253F1C5CDC8B000FA850 /* PSDictionaryProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DE5247B1C5CDC53000FA850 /* PSDictionaryProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DE525401C5CDC8B000FA850 /* PSSetProtocol.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DE5247C1C5CDC53000FA850 /* PSSetProtocol.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		5DE525421C5CDC8B000FA850 /* metamacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DE524BE1C5CDC53000FA850 /* metamacros.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DE525431C5CDC8B000FA850 /* PSDb.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DE524CD1C5CDC53000FA850 /* PSDb.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DE525441C5CDC8B000FA850 /* PSDbAttribute.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DE524CF1C5CDC53000FA850 /* PSDbAttribute.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		5DE525451C5CDC8B000FA850 /* PSDicRecord.h in Headers */ = {isa = PBXBuildFile; fileRef = 5DE524D11C5CDC53000FA850 /* PSDicRecord.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -102,6 +102,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1D56EE591C7FF3E500B3FE64 /* TypeCompatible.test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TypeCompatible.test.m; sourceTree = "<group>"; };
 		2C02DF4C1C66FA4800FCA557 /* assert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = assert.h; path = objc/assert.h; sourceTree = "<group>"; };
 		2C02DF4D1C66FA4800FCA557 /* assert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = assert.m; path = objc/assert.m; sourceTree = "<group>"; };
 		2C02DF4E1C66FA4800FCA557 /* objc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = objc.h; path = objc/objc.h; sourceTree = "<group>"; };
@@ -308,10 +309,11 @@
 		5DE524691C5CDC1D000FA850 /* PSDicRecordTests */ = {
 			isa = PBXGroup;
 			children = (
-				5DE5254D1C5CE60F000FA850 /* Model */,
 				5DE5246C1C5CDC1D000FA850 /* Info.plist */,
+				5DE5254D1C5CE60F000FA850 /* Model */,
 				5DE525541C5CE654000FA850 /* PSDb.test.m */,
 				5DE525581C5CE6AA000FA850 /* PSModel.test.m */,
+				1D56EE591C7FF3E500B3FE64 /* TypeCompatible.test.m */,
 			);
 			path = PSDicRecordTests;
 			sourceTree = "<group>";
@@ -472,7 +474,6 @@
 				5DE5253E1C5CDC8B000FA850 /* PSContainerFactory.h in Headers */,
 				5DE5253F1C5CDC8B000FA850 /* PSDictionaryProtocol.h in Headers */,
 				5DE525401C5CDC8B000FA850 /* PSSetProtocol.h in Headers */,
-				5DE525421C5CDC8B000FA850 /* metamacros.h in Headers */,
 				5DE525431C5CDC8B000FA850 /* PSDb.h in Headers */,
 				5DE525441C5CDC8B000FA850 /* PSDbAttribute.h in Headers */,
 				5DE525451C5CDC8B000FA850 /* PSDicRecord.h in Headers */,
@@ -656,6 +657,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1D56EE5A1C7FF3E500B3FE64 /* TypeCompatible.test.m in Sources */,
 				5DE525591C5CE6AA000FA850 /* PSModel.test.m in Sources */,
 				5DE525531C5CE60F000FA850 /* Teacher.m in Sources */,
 				5DE525551C5CE654000FA850 /* PSDb.test.m in Sources */,

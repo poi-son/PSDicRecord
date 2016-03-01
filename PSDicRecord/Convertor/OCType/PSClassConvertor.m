@@ -54,7 +54,7 @@
     if (class_isMetaClass(metaclass)) {
         memcpy(buffer, (void *)&obj, sizeof(Class));
         return nil;
-    }else if ([obj isKindOfClass:NSString.class]){
+    }else if ([obj isKindOfClass:[NSString class]]){
         Class value = NSClassFromString(obj);
         if (value) {
             memcpy(buffer, (void *)&value, sizeof(Class));
@@ -68,8 +68,15 @@
 
 - (id)objectForBuffer:(void *)buffer{
     returnValIf(buffer == NULL, nil);
-    __unsafe_unretained Class value = nil;
+    __unsafe_unretained id value = nil;
     memcpy(&value, buffer, sizeof(Class));
+    if (class_isMetaClass(object_getClass(value))) {
+        return value;
+    }else if ([value isKindOfClass:[NSString class]]){
+        return NSClassFromString(value);
+    }
+    
+    PSAssert(NO, @"can not conver <%@ %p> to Class", [value class], value);
     return value;
 }
 

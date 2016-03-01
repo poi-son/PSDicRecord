@@ -13,4 +13,5 @@
 @interface Student : PSModel<Student *>
 @property (nonatomic, retain) NSString *name;/**< 姓名 */
 @property (nonatomic, assign) int age;/**< 年龄 */
+@property (nonatomic, retain) NSDate *date;
 @end

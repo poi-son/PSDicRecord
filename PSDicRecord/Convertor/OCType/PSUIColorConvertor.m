@@ -46,7 +46,7 @@
 }
 
 - (void)bindObject:(id)obj toColumn:(int)idx inStatement:(sqlite3_stmt *)statement{
-    sqlite3_bind_int64(statement, idx, [obj ps_hexValueForColor:obj]);
+    sqlite3_bind_int64(statement, idx, [self ps_hexValueForColor:obj]);
 }
 
 - (id)getBuffer:(void *)buffer fromObject:(id)obj{
@@ -68,6 +68,13 @@
     returnValIf(buffer == NULL, nil);
     __unsafe_unretained id obj = nil;
     memcpy(&obj, buffer, sizeof(id));
+    if ([obj isKindOfClass:[NSNumber class]]) {
+        int64_t value = (int64_t)[obj longLongValue];
+        return [self ps_colorWithHex:value];
+    }else if ([obj isKindOfClass:[UIColor class]]){
+        return obj;
+    }
+    PSAssert(NO, @"can not conver <%@ %p>:%@ to UIColor", [obj class]);
     return obj;
 }
 
@@ -100,6 +107,11 @@
         *green = components[0];
         *blue = components[0];
         *alpha = components[1];
+    }else{
+        *red = 0;
+        *green = 0;
+        *blue = 0;
+        *alpha = 0;
     }
 }
 

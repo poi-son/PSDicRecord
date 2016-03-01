@@ -12,4 +12,5 @@
 @implementation Student
 @dynamic name;
 @dynamic age;
+@dynamic date;
 @end

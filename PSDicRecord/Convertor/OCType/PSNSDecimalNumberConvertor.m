@@ -51,11 +51,11 @@
 
 - (id)getBuffer:(void *)buffer fromObject:(id)obj{
     returnValIf(obj == nil || [obj isEqual:[NSNull null]], nil);
-    if ([obj isKindOfClass:NSString.class]) {
+    if ([obj isKindOfClass:[NSString class]]) {
         NSDecimalNumber *value = [NSDecimalNumber decimalNumberWithString:obj];
         memcpy(buffer, (void *)&value, sizeof(id));
         return value;
-    }else if ([obj isKindOfClass:NSDecimalNumber.class]){
+    }else if ([obj isKindOfClass:[NSDecimalNumber class]]){
         memcpy(buffer, (void *)&obj, sizeof(id));
         return nil;
     }
@@ -67,6 +67,12 @@
     returnValIf(buffer == NULL, nil);
     __unsafe_unretained id obj = nil;
     memcpy(&obj, buffer, sizeof(id));
+    if ([obj isKindOfClass:[NSString class]]) {
+        return [NSDecimalNumber decimalNumberWithString:obj];
+    }else if ([obj isKindOfClass:[NSDecimalNumber class]]){
+        return obj;
+    }
+    PSAssert(NO, @"can not conver <%@ %p> to NSDecimalNumber", [obj class], obj);
     return obj;
 }
 @end

@@ -51,15 +51,15 @@
 
 - (id)getBuffer:(void *)buffer fromObject:(id)obj{
     returnValIf(obj == nil || [obj isEqual:[NSNull null]], nil);
-    if ([obj isKindOfClass:NSString.class]) {
+    if ([obj isKindOfClass:[NSString class]]) {
         NSURL *value = [NSURL URLWithString:obj];
         memcpy(buffer, (void *)&value, sizeof(id));
         return value;
-    }else if ([obj isKindOfClass:NSURL.class]){
+    }else if ([obj isKindOfClass:[NSURL class]]){
         memcpy(buffer, (void *)&obj, sizeof(id));
         return nil;
     }
-    PSAssert(NO, @"can not conver <%@ %p> to NSDecimalNumber", [obj class], obj);
+    PSAssert(NO, @"can not conver <%@ %p> to NSURL", [obj class], obj);
     return nil;
 }
 
@@ -67,6 +67,12 @@
     returnValIf(buffer == NULL, nil);
     __unsafe_unretained id obj = nil;
     memcpy(&obj, buffer, sizeof(id));
+    if ([obj isKindOfClass:[NSString class]]) {
+        return [NSURL URLWithString:obj];
+    }else if ([obj isKindOfClass:[NSURL class]]){
+        return obj;
+    }
+    PSAssert(NO, @"can not conver <%@ %p> to NSURL", [obj class], obj);
     return obj;
 }
 

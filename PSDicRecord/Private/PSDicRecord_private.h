@@ -19,6 +19,7 @@
    params; \
 })
 
+#import "PSDicRecordDefines.h"
 #import "PSDbContext.h"
 #import "PSDb.h"
 #import "PSModel.h"
