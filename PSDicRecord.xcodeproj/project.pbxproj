@@ -22,6 +22,7 @@
 
 /* Begin PBXBuildFile section */
 		1D56EE5A1C7FF3E500B3FE64 /* TypeCompatible.test.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D56EE591C7FF3E500B3FE64 /* TypeCompatible.test.m */; };
+		1D76ADD11C87DC490047014E /* None.m in Sources */ = {isa = PBXBuildFile; fileRef = 1D76ADD01C87DC490047014E /* None.m */; };
 		2C02DF511C66FA4800FCA557 /* assert.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C02DF4D1C66FA4800FCA557 /* assert.m */; };
 		2C02DF531C66FA4800FCA557 /* objc.m in Sources */ = {isa = PBXBuildFile; fileRef = 2C02DF4F1C66FA4800FCA557 /* objc.m */; };
 		2C1C751E1C661CDB00930924 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 2C1C751D1C661CDB00930924 /* libsqlite3.tbd */; };
@@ -103,6 +104,8 @@
 
 /* Begin PBXFileReference section */
 		1D56EE591C7FF3E500B3FE64 /* TypeCompatible.test.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TypeCompatible.test.m; sourceTree = "<group>"; };
+		1D76ADCF1C87DC490047014E /* None.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = None.h; sourceTree = "<group>"; };
+		1D76ADD01C87DC490047014E /* None.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = None.m; sourceTree = "<group>"; };
 		2C02DF4C1C66FA4800FCA557 /* assert.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = assert.h; path = objc/assert.h; sourceTree = "<group>"; };
 		2C02DF4D1C66FA4800FCA557 /* assert.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = assert.m; path = objc/assert.m; sourceTree = "<group>"; };
 		2C02DF4E1C66FA4800FCA557 /* objc.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = objc.h; path = objc/objc.h; sourceTree = "<group>"; };
@@ -458,6 +461,8 @@
 				5DE5254F1C5CE60F000FA850 /* Student.m */,
 				5DE525501C5CE60F000FA850 /* Teacher.h */,
 				5DE525511C5CE60F000FA850 /* Teacher.m */,
+				1D76ADCF1C87DC490047014E /* None.h */,
+				1D76ADD01C87DC490047014E /* None.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -660,6 +665,7 @@
 				1D56EE5A1C7FF3E500B3FE64 /* TypeCompatible.test.m in Sources */,
 				5DE525591C5CE6AA000FA850 /* PSModel.test.m in Sources */,
 				5DE525531C5CE60F000FA850 /* Teacher.m in Sources */,
+				1D76ADD11C87DC490047014E /* None.m in Sources */,
 				5DE525551C5CE654000FA850 /* PSDb.test.m in Sources */,
 				5DE525521C5CE60F000FA850 /* Student.m in Sources */,
 			);

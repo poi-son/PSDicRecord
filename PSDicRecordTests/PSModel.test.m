@@ -9,6 +9,7 @@
 #import <XCTest/XCTest.h>
 #import "Student.h"
 #import "Teacher.h"
+#import "None.h"
 
 @interface PSModelTests : XCTestCase
 
@@ -24,7 +25,7 @@
     [[NSFileManager new] removeItemAtPath:dbPath error:nil];
     
     PSDbContext *record = [[PSDbContext alloc] initWithDatasource:dbPath];
-    record.showSql = YES;
+//    record.showSql = YES;
     [record registerModel:[Student class]];
     [record start];
     
@@ -183,5 +184,18 @@
     [self measureBlock:^{
         [[Student dao] findAll];
     }];
+}
+
+- (void)testNoneRegister{
+    None *none = [None new];
+    none.age = 10;
+    none.name = @"123";
+    
+    id age = [none valueForKey:@"age"];
+    XCTAssert([age isKindOfClass:[NSNumber class]]);
+    XCTAssert([age intValue] == 10);
+    
+    id name = [none valueForKey:@"name"];
+    XCTAssert([name isEqualToString:@"123"]);
 }
 @end

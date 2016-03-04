@@ -104,9 +104,9 @@
         }
         return result;
     }
-    @catch (NSException *exception) {
+    @catch (id error) {
         [conn rollback];
-        @throw exception;
+        @throw error;
     }
     @finally {
         [_config removeTransactionConnection];
@@ -142,9 +142,9 @@
         doIf(!isInTransaction, [conn commit]);
         return YES;
     }
-    @catch (NSException *exception) {
+    @catch (id error) {
         doIf(!isInTransaction, [conn rollback]);
-        @throw exception;
+        @throw error;
     }
     @finally {
         doIf(!isInTransaction, ({

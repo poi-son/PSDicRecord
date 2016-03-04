@@ -72,7 +72,7 @@ NSString *property_getAttrValue(objc_property_t property, const char *attributeN
         NSString *columnsStr = [self stringValueForKey:@"columns"];
         if (columnsStr.length) {
             NSArray<NSDictionary<NSString *, NSString *> *> *colsDic = [NSJSONSerialization JSONObjectWithData:[columnsStr dataUsingEncoding:NSUTF8StringEncoding] options:kNilOptions error:nil];
-            cols = colsDic == nil ? nil : ({
+            cols = (colsDic == nil) ? nil : ({
                 NSMutableArray *array = [NSMutableArray new];
                 for (NSDictionary<NSString *, NSString *> *dic in colsDic) {
                     [array addObject:[[PSColumn alloc] initWithAttributes:dic]];

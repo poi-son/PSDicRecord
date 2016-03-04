@@ -14,11 +14,11 @@
     do { \
         __PRAGMA_PUSH_NO_EXTRA_ARG_WARNINGS \
         if (!(condition)) {		\
-            @throw [PSSqlException exceptionInMethod: _cmd \
-                                              object: self \
-                                                file: __FILE__ \
-                                                line: __LINE__ \
-                                         description: desc, ##__VA_ARGS__]; \
+            @throw [PSSqlError errorInMethod: _cmd \
+                                      object: self \
+                                        file: __FILE__ \
+                                        line: __LINE__ \
+                                 description: desc, ##__VA_ARGS__]; \
         } \
         __PRAGMA_POP_NO_EXTRA_ARG_WARNINGS \
     } while(0)
@@ -29,21 +29,20 @@
     do { \
         __PRAGMA_PUSH_NO_EXTRA_ARG_WARNINGS \
         if (!(condition)) {		\
-            @throw [PSSqlException exceptionInMethod: _cmd \
-                                              object: self \
-                                                file: __FILE__ \
-                                                line: __LINE__ \
-                                               error: err_msg \
-                                                code: err_code \
-                                                 sql: err_sql \
-                                          datasource: err_ds]; \
+            @throw [PSSqlError errorInMethod: _cmd \
+                                      object: self \
+                                        file: __FILE__ \
+                                        line: __LINE__ \
+                                       error: err_msg \
+                                        code: err_code \
+                                         sql: err_sql \
+                                  datasource: err_ds]; \
         } \
         __PRAGMA_POP_NO_EXTRA_ARG_WARNINGS \
     } while(0)
 #endif
 
-@interface PSSqlException : NSException
-+ (NSException *)exceptionInMethod:(SEL)method object:(id)obj file:(const char *)file line:(NSUInteger)line description:(NSString *)desc, ...;
-
-+ (NSException *)exceptionInMethod:(SEL)method object:(id)obj file:(const char *)file line:(NSUInteger)line error:(NSString *)error code:(id)code sql:(id)sql datasource:(NSString *)datasource;
+@interface PSSqlError : NSObject
++ (NSError *)errorInMethod:(SEL)method object:(id)obj file:(const char *)file line:(NSUInteger)line description:(NSString *)desc, ...;
++ (NSError *)errorInMethod:(SEL)method object:(id)obj file:(const char *)file line:(NSUInteger)line error:(NSString *)error code:(id)code sql:(id)sql datasource:(NSString *)datasource;
 @end
