@@ -14,7 +14,7 @@ PSDICRECORD_EXTERN_STRING_IMP(PSDicRecordErrorFunction)
 PSDICRECORD_EXTERN_STRING_IMP(PSDicRecordErrorFile)
 PSDICRECORD_EXTERN_STRING_IMP(PSDicRecordErrorLine)
 
-@implementation PSSqlError
+@implementation PSDbError
 + (NSError *)errorInMethod:(SEL)method object:(id)obj file:(const char *)file line:(NSUInteger)line description:(NSString *)desc, ...{
     va_list va;
     va_start(va, desc);
@@ -36,11 +36,13 @@ PSDICRECORD_EXTERN_STRING_IMP(PSDicRecordErrorLine)
 + (NSError *)errorInMethod:(SEL)method object:(id)obj file:(const char *)file line:(NSUInteger)line error:(NSString *)error code:(id)code sql:(id)sql datasource:(NSString *)datasource{
     NSString *fileName = [@(file) lastPathComponent];
     
-    sql_printf(@"%@ %@: %@\nPSDicRecord: %@\n{\n   Error code: %@,\n   Sql: %@,\n   Datasource: %@\n}\n", [[self formatter] stringFromDate:[NSDate date]], fileName, @(line), error, code, sql, datasource);
+    NSString *desc = [NSString stringWithFormat:@"%@ %@: %@\nPSDicRecord: %@\n{\n   Error code: %@,\n   Sql: %@,\n   Datasource: %@\n}\n", [[self formatter] stringFromDate:[NSDate date]], fileName, @(line), error, code, sql, datasource];
+    
+    sql_printf(desc);
     
     return [NSError errorWithDomain:@"cn.yerl.PSDicRecord"
                                code:-1000
-                           userInfo:@{NSLocalizedDescriptionKey: @"Excuting Error",
+                           userInfo:@{NSLocalizedDescriptionKey: desc,
                                       PSDicRecordErrorFunction: NSStringFromSelector(method),
                                       PSDicRecordErrorFile: fileName,
                                       PSDicRecordErrorLine: @(line)}];
