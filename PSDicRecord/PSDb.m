@@ -66,10 +66,10 @@
         returnValIf(result.count < 1, nil);
         
         PSQueryResult *item = [result objectAtIndex:0];
-        NSArray *keys = [item allKeys];
-        PSAssert(keys.count > 0, @"No columns was queried.");
-        PSAssert(keys.count < 2, @"Only ONE column can be queried.");
-        return [item objectForKey:[keys objectAtIndex:0]];
+        NSArray *values = [item allValues];
+        PSAssert(values.count > 0, @"No columns was queried.");
+        PSAssert(values.count < 2, @"Only ONE column can be queried.");
+        return [values[0] isKindOfClass:[NSNull class]] ? nil : values[0];
     }
     @finally {
         [_config close:conn];

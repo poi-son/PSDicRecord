@@ -23,8 +23,8 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)use:(nullable NSString *)configName;/**< Change default datasource. Use default datasource if nil. */
 + (instancetype)main;/**< Use main datasource. */
 
-- (id)queryOne:(NSString *)sql, ...;/**< Execute sql query just return one column.*/
-- (id)queryOneWithSql:(PSSql *)sql;/**< Execute sql query just return one column.*/
+- (nullable id)queryOne:(NSString *)sql, ...;/**< Execute sql query just return one column.*/
+- (nullable id)queryOneWithSql:(PSSql *)sql;/**< Execute sql query just return one column.*/
 - (BOOL)update:(NSString *)sql, ...;/**< Execute update, insert or delete sql statement. */
 - (BOOL)updateWithSql:(PSSql *)sql;/**< Execute update, insert or delete sql statement. */
 - (BOOL)tx:(BOOL (^)(PSDb *db))transaction;/**< Execute transaction. */
