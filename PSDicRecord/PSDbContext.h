@@ -28,7 +28,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)registerModel:(Class)model;/**< Register model to context. */
 - (void)registerConvertor:(id<PSTypeConvertor>)convertor;/** Register type convertor to context. */
-- (void)start;/**< Start this record. */
+- (void)initialize;/**< Initialize this context. */
 @end
 
 NS_ASSUME_NONNULL_END

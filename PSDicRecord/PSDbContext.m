@@ -76,7 +76,7 @@
     }
 }
 
-- (void)start{
+- (void)initialize{
     PSAssert(self.datasource.length, @"you must set up a database");
     PSAssert(_registedModel.count, @"you must register one model at lease");
     [PSDbConnection showSqls:self.showSql];

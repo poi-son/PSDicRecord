@@ -24,10 +24,10 @@
     
     [[NSFileManager new] removeItemAtPath:dbPath error:nil];
     
-    PSDbContext *record = [[PSDbContext alloc] initWithDatasource:dbPath];
+    PSDbContext *context = [[PSDbContext alloc] initWithDatasource:dbPath];
 //    record.showSql = YES;
-    [record registerModel:[Student class]];
-    [record start];
+    [context registerModel:[Student class]];
+    [context initialize];
     
     NSMutableArray<PSSql *> *inserts = [NSMutableArray arrayWithCapacity:20];
     for (NSInteger i = 0; i < 20; i ++) {
