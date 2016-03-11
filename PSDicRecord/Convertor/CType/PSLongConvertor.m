@@ -48,7 +48,8 @@
     sqlite3_bind_int64(statement, idx, [obj longValue]);
 }
 
-- (id)getBuffer:(void *)buffer fromObject:(id)obj{returnValIf(obj == nil || [obj isEqual:[NSNull null]], nil);
+- (id)getBuffer:(void *)buffer fromObject:(id)obj{
+    returnValIf(obj == nil || [obj isEqual:[NSNull null]], nil);
     if ([obj isKindOfClass:[NSString class]]) {
         long long llvalue = [obj longLongValue];
         long value = (long)llvalue;

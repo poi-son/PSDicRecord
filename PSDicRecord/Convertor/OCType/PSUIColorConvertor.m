@@ -68,6 +68,8 @@
     returnValIf(buffer == NULL, nil);
     __unsafe_unretained id obj = nil;
     memcpy(&obj, buffer, sizeof(id));
+    
+    returnValIf(obj == nil, nil);
     if ([obj isKindOfClass:[NSNumber class]]) {
         int64_t value = (int64_t)[obj longLongValue];
         return [self ps_colorWithHex:value];

@@ -67,6 +67,8 @@
     returnValIf(buffer == NULL, nil);
     __unsafe_unretained id obj = nil;
     memcpy(&obj, buffer, sizeof(id));
+    
+    returnValIf(obj == nil, nil);
     if ([obj isKindOfClass:[NSString class]]) {
         return [NSURL URLWithString:obj];
     }else if ([obj isKindOfClass:[NSURL class]]){

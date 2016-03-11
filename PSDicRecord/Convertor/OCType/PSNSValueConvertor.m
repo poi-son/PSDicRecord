@@ -60,6 +60,8 @@
     returnValIf(buffer == NULL, nil);
     __unsafe_unretained id obj = nil;
     memcpy(&obj, buffer, sizeof(id));
+    
+    returnValIf(obj == nil, nil);
     PSAssert([obj isKindOfClass:[NSValue class]], @"can not conver <%@ %p> to NSValue", [obj class], obj);
     return obj;
 }

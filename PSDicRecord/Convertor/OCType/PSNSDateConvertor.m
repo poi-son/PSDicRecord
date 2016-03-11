@@ -66,6 +66,8 @@
     returnValIf(buffer == NULL, nil);
     __unsafe_unretained id obj = nil;
     memcpy(&obj, buffer, sizeof(id));
+    
+    returnValIf(obj == nil, nil);
     if ([obj isKindOfClass:[NSNumber class]]) {
         return [NSDate dateWithTimeIntervalSince1970:[obj doubleValue]];
     }else if ([obj isKindOfClass:[NSDate class]]){

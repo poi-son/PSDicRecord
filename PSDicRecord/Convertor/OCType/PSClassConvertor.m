@@ -68,16 +68,18 @@
 
 - (id)objectForBuffer:(void *)buffer{
     returnValIf(buffer == NULL, nil);
-    __unsafe_unretained id value = nil;
-    memcpy(&value, buffer, sizeof(Class));
-    if (class_isMetaClass(object_getClass(value))) {
-        return value;
-    }else if ([value isKindOfClass:[NSString class]]){
-        return NSClassFromString(value);
+    __unsafe_unretained id obj = nil;
+    memcpy(&obj, buffer, sizeof(Class));
+    
+    returnValIf(obj == nil, nil);
+    if (class_isMetaClass(object_getClass(obj))) {
+        return obj;
+    }else if ([obj isKindOfClass:[NSString class]]){
+        return NSClassFromString(obj);
     }
     
-    PSAssert(NO, @"can not conver <%@ %p> to Class", [value class], value);
-    return value;
+    PSAssert(NO, @"can not conver <%@ %p> to Class", [obj class], obj);
+    return obj;
 }
 
 @end
