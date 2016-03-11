@@ -68,8 +68,20 @@
     returnValIf(_table, _table);
     _table = [PSDbKit tableForModel:self.class];
     
-    static PSTable *_default = nil;
-    return _table ?: _default ?: (_default = [PSTable buildTableWithModel:self.class]);
+    returnValIf(_table, _table);
+    
+    static NSMutableDictionary *__table_cache;
+    static dispatch_once_t onceToken;
+    dispatch_once(&onceToken, ^{
+        __table_cache = [NSMutableDictionary new];
+    });
+    
+    PSTable *table = [__table_cache objectForKey:NSStringFromClass(self.class)];
+    returnValIf(_table, _table);
+    
+    table = [PSTable buildTableWithModel:self.class];
+    [__table_cache setObject:table forKey:NSStringFromClass(self.class)];
+    return table;
 }
 
 #pragma mark - Getter/Setter
