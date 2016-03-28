@@ -600,7 +600,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\n#存放framework的目录\nUNIVERSAL_OUTPUTFOLDER=${BUILD_DIR}/framework-universal\nSIMULATOR_OUTPUTFOLDER=${BUILD_DIR}/framework-iphonesimulator\nIPHONEOS_OUTPUTFOLDER=${BUILD_DIR}/framework-iphoneos\n\n#IPHONE_DEVICE_BUILD_DIR=${BUILD_DIR}/${CONFIGURATION}-iphoneos\nWORKSPACE_NAME=${PROJECT_NAME}.xcodeproj\nBUILD_SCHEME=${PROJECT_NAME}\n\nBUNDLE_DIR=\"Build/Products/Release-iphoneos\"\n\n#先删除已成生的framework, 再生成\nrm -rf \"${SIMULATOR_OUTPUTFOLDER}\"\nrm -rf \"${IPHONEOS_OUTPUTFOLDER}\"\nrm -rf \"${UNIVERSAL_OUTPUTFOLDER}\"\n\ncd ${SRCROOT}\n#模拟器\nxcodebuild -project ${WORKSPACE_NAME} -scheme ${BUILD_SCHEME} -arch i386 -arch x86_64 -sdk iphonesimulator -configuration \"RELEASE\" -derivedDataPath \"${SIMULATOR_OUTPUTFOLDER}\"\n\n#真机\nxcodebuild -project ${WORKSPACE_NAME} -scheme ${BUILD_SCHEME} -sdk iphoneos -configuration \"RELEASE\" -derivedDataPath \"${IPHONEOS_OUTPUTFOLDER}\"\n\n#合并模拟器和真机的架构\nmkdir -p \"${UNIVERSAL_OUTPUTFOLDER}\"\ncp -R \"${IPHONEOS_OUTPUTFOLDER}/${BUNDLE_DIR}/${PROJECT_NAME}.framework\" \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework\"\n\nlipo -create  \"${SIMULATOR_OUTPUTFOLDER}/${BUNDLE_DIR}/${PROJECT_NAME}.framework/${PROJECT_NAME}\" \"${IPHONEOS_OUTPUTFOLDER}/${BUNDLE_DIR}/${PROJECT_NAME}.framework/${PROJECT_NAME}\" -output \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework/${PROJECT_NAME}\"\n\nrm -rf \"${SIMULATOR_OUTPUTFOLDER}\"\nrm -rf \"${IPHONEOS_OUTPUTFOLDER}\"\nopen \"${UNIVERSAL_OUTPUTFOLDER}\"\n";
+			shellScript = "\n#存放framework的目录\nUNIVERSAL_OUTPUTFOLDER=${BUILD_DIR}/framework-universal\nSIMULATOR_OUTPUTFOLDER=${BUILD_DIR}/framework-iphonesimulator\nIPHONEOS_OUTPUTFOLDER=${BUILD_DIR}/framework-iphoneos\n\n#IPHONE_DEVICE_BUILD_DIR=${BUILD_DIR}/${CONFIGURATION}-iphoneos\nWORKSPACE_NAME=${PROJECT_NAME}.xcodeproj\nBUILD_SCHEME=${PROJECT_NAME}\n\nIPHONEOS_BUNDLE_DIR=\"Build/Products/Release-iphoneos\"\nSIMULATOR_BUNDLE_DIR=\"Build/Products/Release-iphonesimulator\"\n\n#先删除已成生的framework, 再生成\nrm -rf \"${SIMULATOR_OUTPUTFOLDER}\"\nrm -rf \"${IPHONEOS_OUTPUTFOLDER}\"\nrm -rf \"${UNIVERSAL_OUTPUTFOLDER}\"\n\ncd ${SRCROOT}\n#模拟器\nxcodebuild -project ${WORKSPACE_NAME} -scheme ${BUILD_SCHEME} -arch i386 -arch x86_64 -sdk iphonesimulator -configuration \"RELEASE\" -derivedDataPath \"${SIMULATOR_OUTPUTFOLDER}\"\n\n#真机\nxcodebuild -project ${WORKSPACE_NAME} -scheme ${BUILD_SCHEME} -sdk iphoneos -configuration \"RELEASE\" -derivedDataPath \"${IPHONEOS_OUTPUTFOLDER}\"\n\n#合并模拟器和真机的架构\nmkdir -p \"${UNIVERSAL_OUTPUTFOLDER}\"\ncp -R \"${IPHONEOS_OUTPUTFOLDER}/${IPHONEOS_BUNDLE_DIR}/${PROJECT_NAME}.framework\" \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework\"\n\nlipo -create  \"${SIMULATOR_OUTPUTFOLDER}/${SIMULATOR_BUNDLE_DIR}/${PROJECT_NAME}.framework/${PROJECT_NAME}\" \"${IPHONEOS_OUTPUTFOLDER}/${IPHONEOS_BUNDLE_DIR}/${PROJECT_NAME}.framework/${PROJECT_NAME}\" -output \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework/${PROJECT_NAME}\"\n\nrm -rf \"${SIMULATOR_OUTPUTFOLDER}\"\nrm -rf \"${IPHONEOS_OUTPUTFOLDER}\"\nopen \"${UNIVERSAL_OUTPUTFOLDER}\"\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -787,8 +787,8 @@
 		5DE524701C5CDC1D000FA850 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: 瑞龙 叶 (53M595F4GB)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 瑞龙 叶 (53M595F4GB)";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -809,8 +809,8 @@
 		5DE524711C5CDC1D000FA850 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				CODE_SIGN_IDENTITY = "iPhone Developer";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: 瑞龙 叶 (53M595F4GB)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: 瑞龙 叶 (53M595F4GB)";
 				DEFINES_MODULE = YES;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
