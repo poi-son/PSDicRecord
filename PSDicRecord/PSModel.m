@@ -12,11 +12,12 @@
 @property (nonatomic, strong) id<PSSetProtocol> modifyFlag;
 @property (nonatomic, strong, readonly) PSTable *table;
 @property (nonatomic, strong, readonly) PSDbConfig *config;
+@property (nonatomic, strong, readonly) NSString *configName;
 @end
 
 @implementation PSModel{
-    NSString *_configName;
     PSTable *_table;
+    NSString *_configName;
 }
 @dynamic ID;
 
@@ -50,11 +51,20 @@
     return self;
 }
 
+- (NSString *)configName{
+    NSString *transaction_config = [NSThread currentThread].threadDictionary[PSDICRECORD_THREAD_TRANSACTION_CONFIG];
+    if (transaction_config) {
+        return transaction_config;
+    }else{
+        return _configName;
+    }
+}
+
 - (PSDbConfig *)config{
     PSDbConfig *config;
-    if (_configName) {
-        config = [PSDbKit configForName:_configName];
-        PSAssert(config, @"can not find config named: %@", _configName);
+    if (self.configName) {
+        config = [PSDbKit configForName:self.configName];
+        PSAssert(config, @"can not find config named: %@", self.configName);
     }else{
         config = [PSDbKit configForModel:self.class];
     }

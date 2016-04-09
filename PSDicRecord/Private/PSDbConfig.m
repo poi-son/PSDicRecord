@@ -43,11 +43,13 @@
 
 - (void)setTransactionConnection:(PSDbConnection *)connection{
     PSAssert(!_transConnection, @"can not reopen a transaction.");
+    [NSThread currentThread].threadDictionary[PSDICRECORD_THREAD_TRANSACTION_CONFIG] = self.name;
     _transConnection = connection;
 }
 
 - (void)removeTransactionConnection{
     _transConnection = nil;
+    [[NSThread currentThread].threadDictionary removeObjectForKey:PSDICRECORD_THREAD_TRANSACTION_CONFIG];
 }
 
 - (void)close:(PSDbConnection *)conn{

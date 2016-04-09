@@ -19,6 +19,8 @@
    params; \
 })
 
+#define PSDICRECORD_THREAD_TRANSACTION_CONFIG @"PSDICRECORD_THREAD_TRANSACTION_CONFIG"
+
 #import "PSDicRecordDefines.h"
 #import "PSDbContext.h"
 #import "PSDb.h"
