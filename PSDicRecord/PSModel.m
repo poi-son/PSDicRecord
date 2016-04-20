@@ -42,10 +42,6 @@
     return [[self alloc] initWithAttributes:attrs];
 }
 
-- (NSString *)configName{
-    return self.config.name;
-}
-
 - (instancetype)use:(NSString *)configName{
     _configName = [configName copy];
     return self;
