@@ -1,0 +1,14 @@
+PODS:
+  - PSDicRecord (1.0.0)
+
+DEPENDENCIES:
+  - PSDicRecord (from `../`)
+
+EXTERNAL SOURCES:
+  PSDicRecord:
+    :path: ../
+
+SPEC CHECKSUMS:
+  PSDicRecord: 53792e51c7636581048e6c62245d3cc0dc00282f
+
+COCOAPODS: 0.39.0

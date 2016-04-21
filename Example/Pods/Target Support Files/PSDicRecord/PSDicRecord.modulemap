@@ -1,0 +1,6 @@
+framework module PSDicRecord {
+  umbrella header "PSDicRecord-umbrella.h"
+
+  export *
+  module * { export * }
+}

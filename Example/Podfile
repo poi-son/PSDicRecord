@@ -1,0 +1,11 @@
+use_frameworks!
+
+target 'PSDicRecord_Example', :exclusive => true do
+  pod 'PSDicRecord', :path => '../'
+end
+
+target 'PSDicRecord_Tests', :exclusive => true do
+  pod 'PSDicRecord', :path => '../'
+
+  
+end
