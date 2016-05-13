@@ -8,8 +8,8 @@
 
 Pod::Spec.new do |s|
   s.name             = "PSDicRecord"
-  s.version          = "1.0.0"
-  s.summary          = "A short description of PSDicRecord."
+  s.version          = "1.0.1"
+  s.summary          = "PSDicRecord."
 
 # This description is used to generate tags and improve search results.
 #   * Think: What does it do? Why did you write it? What is the focus?
@@ -29,8 +29,5 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '8.0'
 
   s.source_files = 'PSDicRecord/Classes/**/*'
-  s.resource_bundles = {
-    'PSDicRecord' => ['PSDicRecord/Assets/*.png']
-  }
   s.libraries = 'sqlite3'
 end
