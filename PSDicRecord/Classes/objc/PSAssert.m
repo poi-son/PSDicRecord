@@ -6,7 +6,7 @@
 //  Copyright © 2016年 PoiSon. All rights reserved.
 //
 
-#import "assert.h"
+#import "PSAssert.h"
 #import "objc.h"
 #import "PSDicRecordDefines.h"
 

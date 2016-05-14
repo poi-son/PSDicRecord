@@ -44,4 +44,4 @@
 #import "PSDbKit.h"
 #import "convenientmacros.h"
 #import "objc.h"
-#import "assert.h"
+#import "PSAssert.h"
