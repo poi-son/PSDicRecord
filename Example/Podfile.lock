@@ -1,5 +1,5 @@
 PODS:
-  - PSDicRecord (1.0.3)
+  - PSDicRecord (1.0.1)
 
 DEPENDENCIES:
   - PSDicRecord (from `../`)
@@ -9,7 +9,7 @@ EXTERNAL SOURCES:
     :path: ../
 
 SPEC CHECKSUMS:
-  PSDicRecord: 0e3125cacc99d05e744a831fdbbdcd0622fa5ea5
+  PSDicRecord: aa57398f6e1f5bf40c9d62367bccb3ba6be6c81c
 
 PODFILE CHECKSUM: 894f420130f0ec780473af71d6d903e9c672a6fc
 

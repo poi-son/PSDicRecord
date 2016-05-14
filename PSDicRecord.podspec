@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "PSDicRecord"
-  s.version          = "1.0.3"
+  s.version          = "1.0.1"
   s.summary          = "PSDicRecord."
 
 # This description is used to generate tags and improve search results.
