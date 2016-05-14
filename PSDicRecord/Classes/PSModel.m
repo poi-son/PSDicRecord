@@ -378,7 +378,7 @@
 
 - (PSSql *)updateSql{
     PSAssert([self valueForKey:self.table.key], @"You can't update model without primary key value");
-    return [PSSqlBuilder forUpdate:self.table attrs:self->_attrs modifyFlag:self.modifyFlag];
+    return [PSSqlBuilder forUpdate:self.table attrs:self->_attrs modifyFlag:self.modifyFlag.toSet];
 }
 
 - (PSSql *)deleteSql{
