@@ -7,7 +7,6 @@
 //
 
 #import <XCTest/XCTest.h>
-#import "PSDicRecord.h"
 #import "Student.h"
 
 @interface PSDbTests : XCTestCase

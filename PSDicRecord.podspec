@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "PSDicRecord"
-  s.version          = "1.0.2"
+  s.version          = "1.0.3"
   s.summary          = "PSDicRecord."
 
 # This description is used to generate tags and improve search results.
@@ -29,5 +29,6 @@ Pod::Spec.new do |s|
   s.ios.deployment_target = '8.0'
 
   s.source_files = 'PSDicRecord/Classes/**/*'
+  s.public_header_files = 'PSDicRecord/Classes/*.h', 'PSDicRecord/Classes/Container/*.h'
   s.libraries = 'sqlite3'
 end
