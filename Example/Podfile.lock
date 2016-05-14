@@ -1,5 +1,5 @@
 PODS:
-  - PSDicRecord (1.0.1)
+  - PSDicRecord (1.0.2)
 
 DEPENDENCIES:
   - PSDicRecord (from `../`)
