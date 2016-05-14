@@ -19,7 +19,7 @@
 #import <PSDicRecord/PSTypeConvertor.h>
 
 #pragma mark - Container
-#import <PSDicRecord/PSContainerFactory>
+#import <PSDicRecord/PSContainerFactory.h>
 #import <PSDicRecord/PSCaseInsensitiveContainerFactory.h>
 #import <PSDicRecord/PSCaseSensitiveContainerFactory.h>
 #import <PSDicRecord/PSSetProtocol.h>
