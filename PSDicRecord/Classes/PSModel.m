@@ -371,6 +371,23 @@
 }
 @end
 
+@implementation PSModel (Sql)
+- (PSSql *)saveSql{
+    return [PSSqlBuilder forSave:self.table attrs:self->_attrs];
+}
+
+- (PSSql *)updateSql{
+    PSAssert([self valueForKey:self.table.key], @"You can't update model without primary key value");
+    return [PSSqlBuilder forUpdate:self.table attrs:self->_attrs modifyFlag:self.modifyFlag];
+}
+
+- (PSSql *)deleteSql{
+    PSAssert([self valueForKey:self.table.key], @"You can't delete model without primary key value");
+    return [PSSqlBuilder forDelete:self.table byCondition:@"ID = ?" withArgs:@[@(self.ID)]];
+}
+
+@end
+
 #pragma mark - implementation of Configuration
 @implementation PSModel(Configuration)
 + (NSString *)tableName{

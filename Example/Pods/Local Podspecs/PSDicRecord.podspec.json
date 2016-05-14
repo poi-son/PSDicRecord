@@ -1,7 +1,7 @@
 {
   "name": "PSDicRecord",
-  "version": "1.0.0",
-  "summary": "A short description of PSDicRecord.",
+  "version": "1.0.1",
+  "summary": "PSDicRecord.",
   "description": "Objective-C 极速ORM",
   "homepage": "https://github.com/Poi-Son/PSDicRecord",
   "license": "MIT",
@@ -10,16 +10,12 @@
   },
   "source": {
     "git": "https://github.com/Poi-Son/PSDicRecord.git",
-    "tag": "1.0.0"
+    "tag": "1.0.1"
   },
   "platforms": {
     "ios": "8.0"
   },
   "source_files": "PSDicRecord/Classes/**/*",
-  "resource_bundles": {
-    "PSDicRecord": [
-      "PSDicRecord/Assets/*.png"
-    ]
-  },
+  "public_header_files": "PSDicRecord/Classes/**/*.h",
   "libraries": "sqlite3"
 }

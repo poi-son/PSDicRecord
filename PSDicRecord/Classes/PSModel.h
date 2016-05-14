@@ -78,6 +78,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (PSPage<M> *)paginate:(NSInteger)pageIndex size:(NSInteger)pageSize withSelect:(NSString *)select where:(NSString *)where, ...;
 @end
 
+@interface PSModel<M> (Sql)
+- (PSSql *)saveSql;/**< Get sql of save operation.*/
+- (PSSql *)updateSql;/**< Get sql of update operation. */
+- (PSSql *)deleteSql;/**< Get sql of delete operation. */
+@end
+
 /**
  *  Config table.
  */

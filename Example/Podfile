@@ -1,11 +1,9 @@
 use_frameworks!
 
-target 'PSDicRecord_Example', :exclusive => true do
-  pod 'PSDicRecord', :path => '../'
-end
-
-target 'PSDicRecord_Tests', :exclusive => true do
+target 'PSDicRecord_Example' do
   pod 'PSDicRecord', :path => '../'
 
-  
+  target 'PSDicRecord_Tests' do
+    inherit! :search_paths
+  end
 end
