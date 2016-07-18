@@ -8,7 +8,7 @@
 
 Pod::Spec.new do |s|
   s.name             = "PSDicRecord"
-  s.version          = "1.0.1"
+  s.version          = "1.0.2"
   s.summary          = "PSDicRecord."
 
 # This description is used to generate tags and improve search results.
@@ -21,10 +21,10 @@ Pod::Spec.new do |s|
   Objective-C 极速ORM
                        DESC
 
-  s.homepage         = "https://github.com/Poi-Son/PSDicRecord"
+  s.homepage         = "https://github.com/alan-yeh/PSDicRecord"
   s.license          = 'MIT'
-  s.author           = { "PoiSon" => "git@yerl.cn" }
-  s.source           = { :git => "https://github.com/Poi-Son/PSDicRecord.git", :tag => s.version.to_s }
+  s.author           = { "Alan Yeh" => "git@yerl.cn" }
+  s.source           = { :git => "https://github.com/alan-yeh/PSDicRecord.git", :tag => s.version.to_s }
 
   s.ios.deployment_target = '8.0'
 
